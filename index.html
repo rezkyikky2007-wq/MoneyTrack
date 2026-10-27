@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyTrack | Keuangan Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HALAMAN PEMBUKA -->
+    <section class="welcome-page" id="welcomePage">
+        <div class="welcome-card">
+
+            <div class="welcome-logo">MT</div>
+
+            <p class="welcome-label">
+                PENCATAT KEUANGAN MAHASISWA
+            </p>
+
+            <h1>Selamat Datang di Sistem Keuangan Mahasiswa!</h1>
+
+            <p class="welcome-description">
+                Kelola uang saku dengan lebih mudah.
+                Catat pemasukan dan pengeluaranmu agar
+                keuangan sehari-hari lebih teratur.
+            </p>
+
+            <div class="welcome-features">
+                <div class="welcome-feature">
+                    <strong>01</strong>
+                    <p>Catat Pemasukan</p>
+                </div>
+
+                <div class="welcome-feature">
+                    <strong>02</strong>
+                    <p>Pantau Pengeluaran</p>
+                </div>
+
+                <div class="welcome-feature">
+                    <strong>03</strong>
+                    <p>Kelola Saldo</p>
+                </div>
+            </div>
+
+            <button type="button" class="welcome-button" id="startButton">
+                Mulai Sekarang &rarr;
+            </button>
+
+            <p class="welcome-note">
+                Keuangan teratur, hidup lebih terencana.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <div class="app" id="dashboardPage">
+
+        <aside class="sidebar">
+            <h2>Sistem Keuangan Mahasiswa</h2>
+
+            <p class="menu-title">MENU UTAMA</p>
+
+            <a class="nav active" href="#dashboard">Dashboard</a>
+            <a class="nav" href="#transaksi">Transaksi</a>
+
+            <div class="sidebar-note">
+                <strong>Atur uangmu,</strong>
+                <strong>atur masa depanmu.</strong>
+                <p>Catat pemasukan dan pengeluaranmu setiap hari.</p>
+            </div>
+        </aside>
+
+        <main class="main" id="dashboard">
+
+            <header class="header">
+                <div>
+                    <p class="eyebrow">KEUANGAN PRIBADI</p>
+                    <h1>Dashboard</h1>
+                    <p class="muted">Pantau dan kelola keuanganmu dengan mudah.</p>
+                </div>
+
+                <span class="date-chip" id="today">Hari ini</span>
+            </header>
+
+            <!-- RINGKASAN KEUANGAN -->
+            <section class="summary">
+
+                <article class="stat balance">
+                    <p>Saldo Saat Ini</p>
+                    <h2 id="saldo">Rp0</h2>
+                    <small>Pemasukan dikurangi pengeluaran</small>
+                </article>
+
+                <article class="stat">
+                    <p>Total Pemasukan</p>
+                    <h2 class="green" id="pemasukan">Rp0</h2>
+                    <small>Jumlah uang masuk</small>
+                </article>
+
+                <article class="stat">
+                    <p>Total Pengeluaran</p>
+                    <h2 class="red" id="pengeluaran">Rp0</h2>
+                    <small>Jumlah uang keluar</small>
+                </article>
+
+            </section>
+
+            <!-- FORM DAN RIWAYAT TRANSAKSI -->
+            <section class="content">
+
+                <section class="panel form-panel">
+                    <h2>Tambah Transaksi</h2>
+                    <p class="muted">Isi detail transaksi di bawah ini.</p>
+
+                    <form id="formTransaksi">
+
+                        <label for="deskripsi">Deskripsi transaksi</label>
+                        <input
+                            id="deskripsi"
+                            type="text"
+                            placeholder="Contoh: Uang saku bulanan"
+                            required
+                        >
+
+                        <div class="field-row">
+
+                            <div class="field">
+                                <label for="jenis">Jenis transaksi</label>
+                                <select id="jenis">
+                                    <option value="masuk">Pemasukan</option>
+                                    <option value="keluar">Pengeluaran</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="kategori">Kategori</label>
+                                <select id="kategori">
+                                    <option>Uang saku</option>
+                                    <option>Makanan</option>
+                                    <option>Transportasi</option>
+                                    <option>Kuliah</option>
+                                    <option>Belanja</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <label for="jumlah">Jumlah uang (Rupiah)</label>
+                        <input
+                            id="jumlah"
+                            type="number"
+                            min="1"
+                            placeholder="50000"
+                            required
+                        >
+
+                        <label for="tanggal">Tanggal transaksi</label>
+                        <input id="tanggal" type="date" required>
+
+                        <button type="submit" class="primary">
+                            + Simpan Transaksi
+                        </button>
+
+                        <p id="pesan" role="status"></p>
+
+                    </form>
+                </section>
+
+                <section class="panel table-panel" id="transaksi">
+
+                    <div class="table-heading">
+                        <div>
+                            <h2>Riwayat Transaksi</h2>
+                            <p class="muted">
+                                Daftar pemasukan dan pengeluaranmu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="search-row">
+                        <input
+                            id="pencarian"
+                            type="search"
+                            placeholder="Cari transaksi atau kategori..."
+                        >
+
+                        <button type="button" class="secondary" id="resetCari">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>TRANSAKSI</th>
+                                    <th>TANGGAL</th>
+                                    <th>JUMLAH</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="isiTabel">
+                                <tr>
+                                    <td colspan="4" class="empty">
+                                        Belum ada transaksi. Silakan tambahkan transaksi.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <span id="jumlahTransaksi">0 transaksi</span>
+
+                        <button
+                            type="button"
+                            id="hapusSemua"
+                            class="delete-all">
+                            Hapus Semua
+                        </button>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <footer>
+                <span id="tahun"></span> · Pencatat Keuangan Mahasiswa
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- FILE JAVASCRIPT TERPISAH -->
+    <script src="script.js"></script>
+
+</body>
+</html>

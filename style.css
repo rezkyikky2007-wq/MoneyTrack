@@ -1,0 +1,656 @@
+
+/* ===== PENGATURAN DASAR ===== */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --biru: #2457a7;
+  --biru-gelap: #193d75;
+  --biru-muda: #edf4ff;
+  --putih: #ffffff;
+  --latar: #f7f9fc;
+  --teks: #273449;
+  --abu: #778399;
+  --garis: #e4e9f0;
+  --hijau: #16845b;
+  --merah: #d64545;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--teks);
+  background: var(--latar);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ===== NAVIGASI ATAS ===== */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 100%;
+  padding: 0 6%;
+  background: var(--putih);
+  border-bottom: 1px solid var(--garis);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+}
+
+.sidebar h2 {
+  margin: 0;
+  padding: 19px 0;
+  color: var(--biru-gelap);
+  font-size: 21px;
+}
+
+.menu-title {
+  display: none;
+}
+
+.nav {
+  padding: 10px 13px;
+  border-radius: 5px;
+  color: #596579;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav:hover,
+.nav.active {
+  color: var(--biru);
+  background: var(--biru-muda);
+}
+
+.sidebar-note {
+  display: none;
+}
+
+/* ===== KONTEN UTAMA ===== */
+
+.main {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 32px 6%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--biru);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 27px;
+  color: #202d42;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.muted {
+  color: var(--abu);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.date-chip {
+  padding: 10px 13px;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 6px;
+  color: #596579;
+  font-size: 12px;
+}
+
+/* ===== RINGKASAN KEUANGAN ===== */
+
+/* Flexbox menyusun kartu secara horizontal */
+.summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 0;
+  padding: 20px;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+}
+
+.stat p {
+  margin: 0 0 13px;
+  color: var(--abu);
+  font-size: 12px;
+}
+
+.stat h2 {
+  margin: 0 0 10px;
+  font-size: 23px;
+  overflow-wrap: anywhere;
+}
+
+.stat small {
+  color: var(--abu);
+  font-size: 11px;
+}
+
+.balance {
+  background: var(--biru);
+  border-color: var(--biru);
+  color: var(--putih);
+}
+
+.balance p,
+.balance small {
+  color: #e1eaff;
+}
+
+.green {
+  color: var(--hijau);
+}
+
+.red {
+  color: var(--merah);
+}
+
+/* ===== FORM DAN TABEL ===== */
+
+/* Flexbox menyusun form dan tabel berdampingan */
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 22px;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+}
+
+.form-panel {
+  flex: 0 0 35%;
+}
+
+.table-panel {
+  flex: 1;
+}
+
+.panel h2 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.panel > .muted {
+  margin-bottom: 20px;
+}
+
+/* ===== INPUT FORM ===== */
+
+form label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #48556b;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  color: var(--teks);
+  background: var(--putih);
+  border: 1px solid #dce3ec;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--biru);
+}
+
+input::placeholder {
+  color: #a3adbb;
+}
+
+/* Flexbox untuk dua kolom input */
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field {
+  flex: 1;
+  min-width: 0;
+}
+
+.primary {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  color: var(--putih);
+  background: var(--biru);
+  border: 1px solid var(--biru);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.primary:hover {
+  background: var(--biru-gelap);
+}
+
+#pesan {
+  min-height: 14px;
+  margin: 10px 0 0;
+  color: var(--hijau);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ===== PENCARIAN TRANSAKSI ===== */
+
+.table-heading {
+  margin-bottom: 18px;
+}
+
+.table-heading .muted {
+  margin-bottom: 0;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.search-row input {
+  flex: 1;
+}
+
+.secondary {
+  padding: 0 12px;
+  color: var(--biru);
+  background: var(--putih);
+  border: 1px solid #dce3ec;
+  border-radius: 5px;
+}
+
+.secondary:hover {
+  background: var(--biru-muda);
+}
+
+/* ===== TABEL HTML ===== */
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead {
+  background: #f3f6fa;
+}
+
+th {
+  color: #596579;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 13px 10px;
+  border-bottom: 1px solid var(--garis);
+}
+
+td {
+  font-size: 12px;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 12px;
+}
+
+.amount-in {
+  color: var(--hijau);
+  font-weight: bold;
+}
+
+.amount-out {
+  color: var(--merah);
+  font-weight: bold;
+}
+
+.delete-button,
+.delete-all {
+  padding: 7px 9px;
+  color: var(--merah);
+  background: #fff4f4;
+  border: 1px solid #f4dede;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.delete-button:hover,
+.delete-all:hover {
+  background: #ffe8e8;
+}
+
+.empty {
+  padding: 25px 12px;
+  color: var(--abu);
+  text-align: center;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--abu);
+  font-size: 11px;
+}
+
+footer {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid var(--garis);
+  color: var(--abu);
+  font-size: 11px;
+}
+
+/* ===== RESPONSIF TABLET ===== */
+
+@media (max-width: 1050px) {
+  .main {
+    padding: 28px 4%;
+  }
+
+  .sidebar {
+    padding: 0 4%;
+    gap: 20px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .form-panel,
+  .table-panel {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .summary {
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    flex: 1 1 28%;
+  }
+}
+
+/* ===== RESPONSIF PONSEL ===== */
+
+@media (max-width: 650px) {
+  .sidebar {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 5px 15px;
+  }
+
+  .sidebar h2 {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 20px;
+  }
+
+  .nav {
+    padding: 9px 11px;
+  }
+
+  .main {
+    padding: 22px 14px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .date-chip {
+    max-width: 125px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .summary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat {
+    flex: auto;
+    padding: 18px;
+  }
+
+  .panel {
+    padding: 17px;
+  }
+
+  .field-row {
+    gap: 8px;
+  }
+
+  .table-footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== PONSEL LAYAR KECIL ===== */
+
+@media (max-width: 390px) {
+  .field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .date-chip {
+    max-width: 100%;
+  }
+}
+
+
+/* ===== HALAMAN PEMBUKA MONEYTRACK ===== */
+
+#dashboardPage {
+    display: none;
+}
+
+.welcome-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--latar);
+    box-sizing: border-box;
+}
+
+.welcome-card {
+    width: 100%;
+    max-width: 680px;
+    padding: 40px;
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.welcome-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    background: var(--biru);
+    color: var(--putih);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.welcome-label {
+    margin-bottom: 12px;
+    color: var(--biru);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.welcome-page h1 {
+    margin: 0 0 15px;
+    color: var(--teks);
+    font-size: 32px;
+    line-height: 1.4;
+}
+
+.welcome-description {
+    max-width: 480px;
+    margin: 0 auto;
+    color: var(--abu);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.welcome-features {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.welcome-feature {
+    flex: 1;
+    min-width: 0;
+    padding: 17px 10px;
+    background: var(--latar);
+    border: 1px solid var(--garis);
+    border-radius: 6px;
+}
+
+.welcome-feature strong {
+    color: var(--biru);
+    font-size: 20px;
+}
+
+.welcome-feature p {
+    margin: 8px 0 0;
+    color: var(--teks);
+    font-size: 12px;
+}
+
+.welcome-button {
+    padding: 13px 26px;
+    color: var(--putih);
+    background: var(--biru);
+    border: 1px solid var(--biru);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.welcome-button:hover {
+    background: var(--biru-gelap);
+}
+
+.welcome-note {
+    margin: 22px 0 0;
+    color: var(--abu);
+    font-size: 11px;
+}
+
+/* ===== RESPONSIF HALAMAN PEMBUKA ===== */
+
+@media (max-width: 650px) {
+    .welcome-card {
+        padding: 28px 18px;
+    }
+
+    .welcome-page h1 {
+        font-size: 25px;
+    }
+
+    .welcome-features {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .welcome-feature {
+        padding: 12px;
+    }
+
+    .welcome-feature p {
+        margin-bottom: 0;
+    }
+}
